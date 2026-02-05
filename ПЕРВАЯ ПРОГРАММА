@@ -1,0 +1,145 @@
+ПЕРВАЯ ПРОГРАММА 
+
+print("=" * 60)
+print("🎉 ПРИВЕТ! ДОБРО ПОЖАЛОВАТЬ В МИР PYTHON! 🎉")
+print("=" * 60)
+
+# 1. Базовые операции
+print("\n1. 📊 БАЗОВЫЕ ОПЕРАЦИИ:")
+a = 15
+b = 4
+
+print(f"   a = {a}, b = {b}")
+print(f"   Сложение: {a} + {b} = {a + b}")
+print(f"   Вычитание: {a} - {b} = {a - b}")
+print(f"   Умножение: {a} * {b} = {a * b}")
+print(f"   Деление: {a} / {b} = {a / b:.2f}")
+print(f"   Целочисленное деление: {a} // {b} = {a // b}")
+print(f"   Остаток от деления: {a} % {b} = {a % b}")
+
+# 2. Работа со строками
+print("\n2. 📝 РАБОТА СО СТРОКАМИ:")
+name = input("  Как тебя зовут? ")
+age = input("  Сколько тебе лет? ")
+
+print(f"\n   Привет, {name}! Тебе {age} лет.")
+print(f"   Длина твоего имени: {len(name)} символов")
+print(f"   Имя в верхнем регистре: {name.upper()}")
+print(f"   Имя в нижнем регистре: {name.lower()}")
+
+# 3. Списки
+print("\n3. 📋 СПИСКИ (LIST):")
+fruits = ["яблоко", "банан", "апельсин", "киви"]
+print(f"   Список фруктов: {fruits}")
+print(f"   Первый фрукт: {fruits[0]}")
+print(f"   Последний фрукт: {fruits[-1]}")
+print(f"   Количество фруктов: {len(fruits)}")
+
+# Добавим фрукт
+fruits.append("манго")
+print(f"   Добавили манго: {fruits}")
+
+# Удалим фрукт
+removed = fruits.pop(1)
+print(f"   Удалили {removed}: {fruits}")
+
+# 4. Словари
+print("\n4. 📚 СЛОВАРИ (DICT):")
+student = {
+    "имя": name,
+    "возраст": age,
+    "курс": "Python для начинающих",
+    "уровень": "начинающий"
+}
+
+print("   Информация о студенте:")
+for key, value in student.items():
+    print(f"   {key.capitalize()}: {value}")
+
+# 5. Условные операторы
+print("\n5. 🔄 УСЛОВНЫЕ ОПЕРАТОРЫ:")
+number = int(input("   Введите число от 1 до 10: "))
+
+if 1 <= number <= 10:
+    if number % 2 == 0:
+        print(f"   Число {number} - четное")
+    else:
+        print(f"   Число {number} - нечетное")
+
+    if number > 5:
+        print(f"   Число {number} больше 5")
+    else:
+        print(f"   Число {number} меньше или равно 5")
+else:
+    print("   Число должно быть от 1 до 10!")
+
+# 6. Циклы
+print("\n6. 🔁 ЦИКЛЫ:")
+print("   Таблица умножения на 3:")
+for i in range(1, 11):
+    print(f"   3 × {i:2} = {3 * i:2}")
+
+# 7. Функции
+print("\n7. ⚙️ ФУНКЦИИ:")
+
+
+def calculate_bmi(weight, height):
+    """Рассчитывает индекс массы тела"""
+    bmi = weight / (height ** 2)
+
+    if bmi < 18.5:
+        category = "недостаточный вес"
+    elif bmi < 25:
+        category = "нормальный вес"
+    elif bmi < 30:
+        category = "избыточный вес"
+    else:
+        category = "ожирение"
+
+    return round(bmi, 2), category
+
+
+# Пример использования функции
+bmi, category = calculate_bmi(70, 1.75)
+print(f"   Пример ИМТ: вес=70кг, рост=1.75м")
+print(f"   ИМТ = {bmi}, категория: {category}")
+
+# 8. Калькулятор
+print("\n8. 🧮 ПРОСТОЙ КАЛЬКУЛЯТОР:")
+
+
+def calculator():
+    print("   Доступные операции: +, -, *, /")
+
+    try:
+        num1 = float(input("   Введите первое число: "))
+        operation = input("   Введите операцию: ")
+        num2 = float(input("   Введите второе число: "))
+
+        if operation == '+':
+            result = num1 + num2
+        elif operation == '-':
+            result = num1 - num2
+        elif operation == '*':
+            result = num1 * num2
+        elif operation == '/':
+            if num2 == 0:
+                return "Ошибка: деление на ноль!"
+            result = num1 / num2
+        else:
+            return "Ошибка: неизвестная операция!"
+
+        return f"   Результат: {num1} {operation} {num2} = {result}"
+
+    except ValueError:
+        return "Ошибка: введите числа корректно!"
+
+
+print(calculator())
+
+print("\n" + "=" * 60)
+print("🎓 ПОЗДРАВЛЯЮ! ТЫ ИЗУЧИЛ ОСНОВЫ PYTHON!")
+print("=" * 60)
+
+
+input("\nНажми Enter для выхода...")
